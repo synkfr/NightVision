@@ -61,8 +61,8 @@ title_disabled: "&7Night Vision &cOFF"
 
 Need help or want to suggest a feature?
 
-[![Join Discord](https://img.shields.io/discord/1378591879393710110?label=Join%20Our%20Discord\&logo=discord\&style=for-the-badge)](https://discord.gg/pAPPvSmWRK)
-[![Open Issues](https://img.shields.io/github/issues/synkfr/NightVision?label=Report%20an%20Issue\&logo=github\&style=for-the-badge)](https://github.com/synkfr/NightVision/issues)
+[![Discord](https://img.shields.io/discord/1378591879393710110?style=for-the-badge)](https://discord.gg/pAPPvSmWRK)  
+[![GitHub Issues](https://img.shields.io/github/issues/synkfr/NightVision?style=for-the-badge)](https://github.com/synkfr/NightVision/issues)
 
 ---
 
