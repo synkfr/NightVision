@@ -1,0 +1,9 @@
+name: NightVision
+version: '1.0'
+main: org.ayosynk.nightVision.NightVision
+api-version: '1.21'
+author: AyoSynk
+commands:
+  nv:
+    description: Toggle night vision on/off
+    usage: /nv

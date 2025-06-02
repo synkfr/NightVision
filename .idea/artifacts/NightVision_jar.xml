@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NightVision:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NightVision_jar</output-path>
+    <root id="archive" name="NightVision.jar">
+      <element id="module-output" name="NightVision" />
+    </root>
+  </artifact>
+</component>
