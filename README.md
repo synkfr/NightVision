@@ -38,21 +38,32 @@ Click to watch the demo on YouTube.
 ## ⚙️ Configuration (`config.yml`)
 
 ```yaml
-# ███╗░░██╗██╗░██████╗░██╗░░██╗████████╗        ██╗░░░██╗██╗░██████╗██╗░█████╗░███╗░░██╗
-# ████╗░██║██║██╔════╝░██║░░██║╚══██╔══╝        ██║░░░██║██║██╔════╝██║██╔══██╗████╗░██║
-# ██╔██╗██║██║██║░░██╗░███████║░░░██║░░░        ╚██╗░██╔╝██║╚█████╗░██║██║░░██║██╔██╗██║
-# ██║╚████║██║██║░░╚██╗██╔══██║░░░██║░░░        ░╚████╔╝░██║░╚═══██╗██║██║░░██║██║╚████║
-# ██║░╚███║██║╚██████╔╝██║░░██║░░░██║░░░        ░░╚██╔╝░░██║██████╔╝██║╚█████╔╝██║░╚███║
-# ╚═╝░░╚══╝╚═╝░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░        ░░░╚═╝░░░╚═╝╚═════╝░╚═╝░╚════╝░╚═╝░░╚══╝
+#    ███╗░░██╗██╗░██████╗░██╗░░██╗████████╗        ██╗░░░██╗██╗░██████╗██╗░█████╗░███╗░░██╗
+#    ████╗░██║██║██╔════╝░██║░░██║╚══██╔══╝        ██║░░░██║██║██╔════╝██║██╔══██╗████╗░██║
+#    ██╔██╗██║██║██║░░██╗░███████║░░░██║░░░        ╚██╗░██╔╝██║╚█████╗░██║██║░░██║██╔██╗██║
+#    ██║╚████║██║██║░░╚██╗██╔══██║░░░██║░░░        ░╚████╔╝░██║░╚═══██╗██║██║░░██║██║╚████║
+#    ██║░╚███║██║╚██████╔╝██║░░██║░░░██║░░░        ░░╚██╔╝░░██║██████╔╝██║╚█████╔╝██║░╚███║
+#    ╚═╝░░╚══╝╚═╝░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░        ░░░╚═╝░░░╚═╝╚═════╝░╚═╝░╚════╝░╚═╝░░╚══╝
 
-# Chat message when toggled (set to "" to disable)
+# Core Settings
+use-permissions: false
+effect-duration: -1  # Duration in seconds (-1 = infinite)
+apply-on-join: true
+show-particles: false
+
+# Message Settings
 messages:
-  enabled: "&a&lNight Vision Enabled"
-  disabled: "&c&lNight Vision Disabled"
+# if set to false chat messages won't appear
+  enabled: true
+  enabled-text: "&a&lNight Vision Enabled"
+  disabled-text: "&c&lNight Vision Disabled"
 
-# Title message when toggled (set to "" to disable)
-title_enabled: "&7Night Vision &aON"
-title_disabled: "&7Night Vision &cOFF"
+# Title Settings
+titles:
+# id set to false action bar titles won't appear
+  enabled: true
+  enabled-text: "&7Night Vision &aON"
+  disabled-text: "&7Night Vision &cOFF"
 ```
 
 ---
