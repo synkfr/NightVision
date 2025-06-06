@@ -4,6 +4,15 @@ main: org.ayosynk.nightVision.NightVision
 api-version: '1.21'
 author: AyoSynk
 commands:
-  nv:
-    description: Toggle night vision on/off
-    usage: /nv
+  nightvision:
+    description: Toggle night vision effect
+    usage: /nightvision [reload]
+    aliases: [nv]
+
+permissions:
+  nightvision.use:
+    description: Allows players to use night vision
+    default: true
+  nightvision.reload:
+    description: Allows reloading the plugin configuration
+    default: op
