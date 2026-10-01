@@ -1,8 +1,11 @@
 name: NightVision
-version: '1.0'
+version: '1.4'
 main: org.ayosynk.nightVision.NightVision
 api-version: '1.21'
+folia-supported: true
 author: AyoSynk
+description: Ultra-lightweight night vision toggle plugin supporting Folia, Paper, and modern forks.
+
 commands:
   nightvision:
     description: Toggle night vision effect
@@ -11,8 +14,11 @@ commands:
 
 permissions:
   nightvision.use:
-    description: Allows players to use night vision
+    description: Allows players to use the night vision toggle command
     default: true
   nightvision.reload:
     description: Allows reloading the plugin configuration
+    default: op
+  nightvision.admin:
+    description: Allows receiving update notifications when joining the server
     default: op

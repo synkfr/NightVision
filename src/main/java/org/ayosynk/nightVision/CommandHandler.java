@@ -1,15 +1,19 @@
 package org.ayosynk.nightVision;
 
-import org.bukkit.ChatColor;
+import org.ayosynk.nightVision.util.ColorUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class CommandHandler implements CommandExecutor {
+public class CommandHandler implements CommandExecutor, TabCompleter {
+
     private final JavaPlugin plugin;
     private final PlayerManager playerManager;
     private final ConfigManager configManager;
@@ -24,38 +28,46 @@ public class CommandHandler implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        // Reload command
+
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("nightvision.reload")) {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to reload the config.");
+                sender.sendMessage(ColorUtil.colorize("&cYou do not have permission to reload the configuration."));
                 return true;
             }
             configManager.reload();
-            sender.sendMessage(ChatColor.GREEN + "Configuration reloaded!");
+            sender.sendMessage(ColorUtil.colorize("&a[NightVision] Configuration reloaded successfully!"));
             return true;
         }
 
-        // Toggle command
         if (!(sender instanceof Player player)) {
-            sender.sendMessage(ChatColor.RED + "Only players can use this command.");
+            sender.sendMessage(ColorUtil.colorize("&cOnly players can toggle night vision for themselves."));
             return true;
         }
 
         if (configManager.usePermissions() && !player.hasPermission("nightvision.use")) {
-            player.sendMessage(ChatColor.RED + "You don't have permission to use this command.");
+            sender.sendMessage(ColorUtil.colorize("&cYou do not have permission to use this command."));
             return true;
         }
 
-        UUID uuid = player.getUniqueId();
-        boolean isNowEnabled = playerManager.togglePlayer(uuid);
+        boolean newState = playerManager.togglePlayer(player);
 
-        if (isNowEnabled) {
+        if (newState) {
             effectApplier.applyNightVision(player);
         } else {
             effectApplier.removeNightVision(player);
         }
 
-        effectApplier.sendNotification(player, isNowEnabled);
+        effectApplier.sendNotification(player, newState);
         return true;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            if (sender.hasPermission("nightvision.reload") && "reload".startsWith(args[0].toLowerCase())) {
+                return Collections.singletonList("reload");
+            }
+        }
+        return Collections.emptyList();
     }
 }
